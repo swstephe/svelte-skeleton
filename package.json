@@ -1,0 +1,21 @@
+{
+  "name": "@swstephe/svelte-skeleton",
+  "version": "1.0.0-alpha.1",
+  "description": "Skeleton CSS Components for Svelte v3",
+  "author": "Scott Stephens <zahi.stephens@nuruq.com",
+  "keywords": [
+    "svelte",
+    "svelte3",
+    "skeleton",
+    "svelte-components",
+    "sveltejs"
+  ],
+  "main": "index.js",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "license": "ISC"
+}
