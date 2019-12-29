@@ -1,4 +1,9 @@
 <script>
+  import clsx from "clsx";
+  import {clean} from './utils';
+
+  let className = '';
+  export { className as class };
   export let span = 1;
   export let offset = 0;
   const singular = ["1", "1/3", "1/2"];
@@ -19,24 +24,16 @@
     "2/3": "two-thirds",
     "1/2": "one-half"
   };
+  const props = clean($$props);
 
-  function compute_classes(span, offset) {
-    const classList = [];
-    if (span && num_map[span]) {
-      classList.push(num_map[span]);
-      classList.push(singular.includes(span) ? "column" : "columns");
-    }
-    if (offset && num_map[offset]) {
-      classList.push("offset-by-" + num_map[offset]);
-    }
-    if ($$props['class']) {
-      classList.push($$props['class']);
-    }
-    return classList.join(" ");
-  }
-  $: classes = compute_classes(span, offset);
+  $: classes = clsx(
+    className,
+    span && num_map[span] ? num_map[span] : false,
+    span && num_map[span] ? (singular.includes(span) ? "column" : "columns") : false,
+    offset && num_map[offset] ? "offset-by-" + num_map[offset] : false
+  );
 </script>
 
-<div class={classes}>
+<div {...props} class={classes}>
   <slot/>
 </div>
