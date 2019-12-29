@@ -4,7 +4,7 @@
 
   let className = '';
   export { className as class };
-  const props = clean($$pros);
+  const props = clean($$props);
 
   $: classes = clsx(
     className,
